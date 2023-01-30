@@ -12,6 +12,13 @@ export default function Layout({ children }) {
         </nav>
       </header>
       <div className="max-w-3xl mx-auto">{children}</div>
+      <footer>
+        <nav className="flex justify-center gap-x-5 pt-6 text-lg pb-6">
+          <a href="https://www.linkedin.com/in/ellina-shcherbaeva/">LinkedIn</a>
+          <a href="https://github.com/peezlepass">GitHub</a>
+          <a href="/">CV</a>
+        </nav>
+      </footer>
     </main>
   );
 }
