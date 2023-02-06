@@ -4,7 +4,7 @@ import Home from "./Home";
 import Portfolio from "./Portfolio";
 import About from "./About";
 import Contact from "./Contact";
-import Task from "./Task";
+import Todo from "./Todo";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/todo" element={<Task />} />
+          <Route path="/todo" element={<Todo />} />
         </Routes>
       </Layout>
     </BrowserRouter>
