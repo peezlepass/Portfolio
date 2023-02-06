@@ -8,7 +8,7 @@ export default function Todo() {
   return (
     <div className="max-w-lg mx-auto mt-96">
       <AddTask setTasks={setTasks} />
-      <List tasks={tasks} />
+      <List setTasks={setTasks} tasks={tasks} />
     </div>
   );
 }
