@@ -2,12 +2,12 @@ import React from "react";
 import { useState } from "react";
 import { Switch } from "@headlessui/react";
 
-export default function Checkbox({ checked }) {
+export default function Checkbox({ checked, onChange }) {
   const [enabled, setEnabled] = useState(false);
   return (
     <Switch
       checked={checked}
-      //onChange={setEnabled}
+      onChange={onChange}
       className={`${
         checked ? "bg-blue-600" : "bg-gray-200"
       } relative inline-flex h-7 w-7 items-center rounded-lg`}

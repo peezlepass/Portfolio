@@ -2,6 +2,18 @@ import React from "react";
 import Checkbox from "./Checkbox";
 
 export default function Task({ task, setTasks }) {
+  const changeCheckbox = (value) => {
+    setTasks((currentTasks) => {
+      return currentTasks.map((t) => {
+        if (task.id === t.id) {
+          return { ...t, status: value };
+        } else {
+          return t;
+        }
+      });
+    });
+  };
+
   const deleteTask = (event) => {
     event.preventDefault();
     setTasks((currentTasks) => {
@@ -12,7 +24,7 @@ export default function Task({ task, setTasks }) {
   };
   return (
     <div className="flex gap-x-4">
-      <Checkbox checked={task.status} />
+      <Checkbox checked={task.status} onChange={changeCheckbox} />
       <span className="grow">{task.name}</span>
       <button onClick={deleteTask} type="button">
         <svg width="35px" height="35px" version="1.1" viewBox="0 0 700 700">
