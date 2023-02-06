@@ -2,17 +2,17 @@ import React from "react";
 import { useState } from "react";
 import { Switch } from "@headlessui/react";
 
-export default function Checkbox() {
+export default function Checkbox({ checked }) {
   const [enabled, setEnabled] = useState(false);
   return (
     <Switch
-      checked={enabled}
-      onChange={setEnabled}
+      checked={checked}
+      //onChange={setEnabled}
       className={`${
-        enabled ? "bg-blue-600" : "bg-gray-200"
+        checked ? "bg-blue-600" : "bg-gray-200"
       } relative inline-flex h-7 w-7 items-center rounded-lg`}
     >
-      {enabled ? (
+      {checked ? (
         <svg
           className="mt-1"
           width="25px"

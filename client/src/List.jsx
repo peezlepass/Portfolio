@@ -1,24 +1,20 @@
 import React from "react";
 import Task from "./Task";
 
-export default function List() {
+export default function List({ tasks }) {
   return (
     <ul>
-      <li>
-        <Task />
-      </li>
-      <li>
-        <Task />
-      </li>
-      <li>
-        <Task />
-      </li>
-      <li>
-        <Task />
-      </li>
-      <li>
-        <Task />
-      </li>
+      {tasks.length ? (
+        tasks.map((task) => {
+          return (
+            <li key={task.id}>
+              <Task task={task} />
+            </li>
+          );
+        })
+      ) : (
+        <p>Add a Task</p>
+      )}
     </ul>
   );
 }
