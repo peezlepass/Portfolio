@@ -9,6 +9,7 @@ export default function Layout({ children }) {
           <Link to="/portfolio">Portfolio</Link>
           <Link to="/about">About</Link>
           <Link to="/contact">Contact</Link>
+          <Link to="/todo">Todo</Link>
         </nav>
       </header>
       <div className="max-w-3xl mx-auto">{children}</div>
