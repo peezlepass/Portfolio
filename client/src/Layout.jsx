@@ -10,9 +10,11 @@ export default function Layout({ children }) {
           <Link to="/about">About</Link>
           <Link to="/contact">Contact</Link>
           <Link to="/todo">Todo</Link>
+          <Link to="/project-solo">Project Solo</Link>
         </nav>
       </header>
-      <div className="max-w-3xl mx-auto">{children}</div>
+      {/* <div className="max-w-3xl mx-auto">{children}</div> */}
+      {children}
       <footer>
         <nav className="flex justify-center gap-x-5 pt-6 text-lg pb-6">
           <a href="https://www.linkedin.com/in/ellina-shcherbaeva/">LinkedIn</a>

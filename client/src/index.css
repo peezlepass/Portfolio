@@ -7,3 +7,93 @@ html {
   color: #006d77;
   font-family: "Castoro";
 }
+
+.star {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: white;
+  display: block;
+  box-shadow: 0.5px 0px 2px 1px white, -0.5px -0.5px 2px 1px white,
+    0.5px 0 2px 1px white;
+}
+
+.star-container {
+  position: absolute;
+  animation-duration: 2s;
+  animation-name: twinkle;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes twinkle {
+  from {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.four-pointed-star {
+  position: absolute;
+  display: block;
+  margin: 1em auto;
+  width: 1em;
+}
+
+.four-pointed-star.big {
+  font-size: 0.6em;
+}
+
+.four-pointed-star.medium {
+  font-size: 0.3em;
+}
+
+.four-pointed-star.small {
+  font-size: 0.2em;
+}
+
+.four-pointed-star:before {
+  content: "";
+  position: absolute;
+  background: white;
+  width: 1em;
+  height: 1.15em;
+  transform: rotate(-45deg) skewX(22.5deg) skewY(22.5deg);
+}
+
+.four-pointed-star:after {
+  content: "";
+  position: absolute;
+  background: white;
+  width: 1em;
+  height: 1.15em;
+  transform: rotate(45deg) skewX(22.5deg) skewY(22.5deg);
+}
+
+.group:hover .four-pointed-star:after,
+.group:hover .four-pointed-star:before {
+  animation-duration: 2s;
+  animation-name: twinkle;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.star-dance .four-pointed-star {
+  animation-duration: 2s;
+  animation-name: twinkle;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  filter: blur(0px);
+}
+
+.star-dance .four-pointed-star:after,
+.star-dance .four-pointed-star:before {
+  background-color: rgb(221, 215, 46);
+}

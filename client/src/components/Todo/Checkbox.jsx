@@ -1,9 +1,7 @@
 import React from "react";
-import { useState } from "react";
 import { Switch } from "@headlessui/react";
 
 export default function Checkbox({ checked, onChange }) {
-  const [enabled, setEnabled] = useState(false);
   return (
     <Switch
       checked={checked}

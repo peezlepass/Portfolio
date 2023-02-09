@@ -2,9 +2,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./Layout";
 import Home from "./components/HomePage/Home";
 import Portfolio from "./components/HomePage/Portfolio";
-import About from "./components/HomePage//About";
-import Contact from "./components/HomePage//Contact";
+import About from "./components/HomePage/About";
+import Contact from "./components/HomePage/Contact";
 import Todo from "./components/Todo/Todo";
+import ProjectSolo from "./components/ProjectSolo/ProjectSolo";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/todo" element={<Todo />} />
+          <Route path="/project-solo" element={<ProjectSolo />} />
         </Routes>
       </Layout>
     </BrowserRouter>
