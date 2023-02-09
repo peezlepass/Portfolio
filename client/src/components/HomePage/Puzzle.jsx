@@ -1,9 +1,15 @@
-export default function Puzzle({ color, className, style }) {
+export default function Puzzle({
+  color,
+  className,
+  style,
+  width = 200,
+  height = 200,
+}) {
   return (
     <svg
       className={className}
-      width="200px"
-      height="200px"
+      width={width}
+      height={height}
       viewBox="0 0 72 72"
       id="emoji"
       xmlns="http://www.w3.org/2000/svg"

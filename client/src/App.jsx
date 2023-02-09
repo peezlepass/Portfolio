@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./Layout";
-import Home from "./Home";
-import Portfolio from "./Portfolio";
-import About from "./About";
-import Contact from "./Contact";
-import Todo from "./Todo";
+import Home from "./components/HomePage/Home";
+import Portfolio from "./components/HomePage/Portfolio";
+import About from "./components/HomePage//About";
+import Contact from "./components/HomePage//Contact";
+import Todo from "./components/Todo/Todo";
 
 function App() {
   return (
