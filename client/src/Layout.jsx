@@ -11,6 +11,8 @@ export default function Layout({ children }) {
           <Link to="/contact">Contact</Link>
           <Link to="/todo">Todo</Link>
           <Link to="/project-solo">Project Solo</Link>
+          <Link to="/register">Register</Link>
+          <Link to="/login">Login</Link>
         </nav>
       </header>
       {/* <div className="max-w-3xl mx-auto">{children}</div> */}

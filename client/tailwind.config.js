@@ -79,6 +79,7 @@ module.exports = {
       },
       colors: {
         poster: "#EDF6F9",
+        button: "#83C5BE",
       },
       backgroundImage: {
         // https://codepen.io/billyysea/pen/nLroLY

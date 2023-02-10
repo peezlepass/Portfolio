@@ -6,6 +6,8 @@ import About from "./components/HomePage/About";
 import Contact from "./components/HomePage/Contact";
 import Todo from "./components/Todo/Todo";
 import ProjectSolo from "./components/ProjectSolo/ProjectSolo";
+import Register from "./components/Register/Register";
+import Login from "./components/Login/Login";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/todo" element={<Todo />} />
           <Route path="/project-solo" element={<ProjectSolo />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </Layout>
     </BrowserRouter>
