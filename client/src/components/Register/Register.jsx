@@ -1,7 +1,24 @@
 export default function Register() {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const name = event.target.name.value;
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    const response = await fetch("http://localhost:3001/register", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify({ name, email, password }),
+    });
+    const result = await response.json();
+    console.log(result);
+  };
+
   return (
     <div className="flex items-center justify-center h-full-body">
-      <form className="flex flex-col gap-y-6 text-xl">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-y-6 text-xl">
         <input
           name="name"
           placeholder="Name"

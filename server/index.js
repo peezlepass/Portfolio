@@ -3,17 +3,18 @@ require("dotenv").config();
 const express = require("express");
 const morgan = require("morgan");
 const path = require("path");
+const cors = require("cors");
 
 const session = require("express-session");
 const FileStore = require("session-file-store")(session);
 const authenticationRouter = require("./routes/authentication");
 
 const app = express();
-const { PORT, SECRET } = process.env;
+const { PORT, SESSION_SECRET } = process.env;
 const sessionConfig = {
   name: "portfolio",
   store: new FileStore(),
-  secret: SECRET,
+  secret: SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   cookie: {
@@ -26,6 +27,15 @@ app.use(morgan("dev"));
 app.use(express.static(path.join(__dirname, "./public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(
+  cors({
+    credentials: true,
+    origin(origin, callback) {
+      callback(null, true);
+    },
+  })
+);
+app.use(session(sessionConfig));
 
 app.use("/", authenticationRouter);
 
