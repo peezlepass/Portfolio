@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import { globalContext } from "../../context/globalContext";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const { dispatch } = useContext(globalContext);
+  const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
     const email = event.target.email.value;
@@ -17,6 +19,7 @@ export default function Login() {
     });
     const result = await response.json();
     dispatch({ type: "LOGIN", payload: result.user });
+    navigate("/");
   };
   return (
     <div className="flex items-center justify-center h-full-body">

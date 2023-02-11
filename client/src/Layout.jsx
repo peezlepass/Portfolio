@@ -1,11 +1,13 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { globalContext } from "./context/globalContext";
+import { useNavigate } from "react-router-dom";
 
 export default function Layout({ children }) {
   const { dispatch, state } = useContext(globalContext);
+  const navigate = useNavigate();
   const onClickLogout = async (event) => {
-    await fetch("http://localhost:3001/login", {
+    await fetch("http://localhost:3001/logout", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -13,6 +15,7 @@ export default function Layout({ children }) {
       credentials: "include",
     });
     dispatch({ type: "LOGOUT" });
+    navigate("/");
   };
   return (
     <main>

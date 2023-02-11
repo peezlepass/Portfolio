@@ -13,7 +13,9 @@ import userReducer from "./reducers/userReducer";
 import { globalContext as GlobalContext } from "./context/globalContext";
 
 function App() {
-  const initialState = { user: null };
+  const localUser = localStorage.getItem("portfolio.user");
+
+  const initialState = { user: localUser ? JSON.parse(localUser) : null };
   const [state, dispatch] = useReducer(userReducer, initialState);
   return (
     <GlobalContext.Provider value={{ state, dispatch }}>

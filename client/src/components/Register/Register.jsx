@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import { globalContext } from "../../context/globalContext";
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
   const { dispatch } = useContext(globalContext);
+  const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
     const name = event.target.name.value;
@@ -18,6 +20,7 @@ export default function Register() {
     });
     const result = await response.json();
     dispatch({ type: "REGISTER", payload: result.user });
+    navigate("/");
   };
 
   return (
