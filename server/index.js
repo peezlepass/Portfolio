@@ -27,6 +27,10 @@ app.use(morgan("dev"));
 app.use(express.static(path.join(__dirname, "./public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// Credentials: true - allows cookies
+// An origin function allows us to have a dynamic origin value instead of the default
+// * wild card
+// This is necessary because browsers block * when credentials are allowed.
 app.use(
   cors({
     credentials: true,

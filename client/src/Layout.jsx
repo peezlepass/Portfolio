@@ -1,6 +1,19 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { globalContext } from "./context/globalContext";
 
 export default function Layout({ children }) {
+  const { dispatch, state } = useContext(globalContext);
+  const onClickLogout = async (event) => {
+    await fetch("http://localhost:3001/login", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      credentials: "include",
+    });
+    dispatch({ type: "LOGOUT" });
+  };
   return (
     <main>
       <header>
@@ -11,8 +24,16 @@ export default function Layout({ children }) {
           <Link to="/contact">Contact</Link>
           <Link to="/todo">Todo</Link>
           <Link to="/project-solo">Project Solo</Link>
-          <Link to="/register">Register</Link>
-          <Link to="/login">Login</Link>
+          {state.user ? (
+            <button type="button" onClick={onClickLogout}>
+              Logout
+            </button>
+          ) : (
+            <>
+              <Link to="/register">Register</Link>
+              <Link to="/login">Login</Link>
+            </>
+          )}
         </nav>
       </header>
       {/* <div className="max-w-3xl mx-auto">{children}</div> */}

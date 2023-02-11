@@ -1,4 +1,8 @@
+import { useContext } from "react";
+import { globalContext } from "../../context/globalContext";
+
 export default function Register() {
+  const { dispatch } = useContext(globalContext);
   const handleSubmit = async (event) => {
     event.preventDefault();
     const name = event.target.name.value;
@@ -13,7 +17,7 @@ export default function Register() {
       body: JSON.stringify({ name, email, password }),
     });
     const result = await response.json();
-    console.log(result);
+    dispatch({ type: "REGISTER", payload: result.user });
   };
 
   return (
