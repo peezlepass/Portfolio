@@ -22,7 +22,14 @@ export default function MinesweeperPage() {
       <Bomb></Bomb>
       <BombGuess></BombGuess>
       <Empty></Empty>
-      <Number></Number>
+      <Number number={1}></Number>
+      <Number number={2}></Number>
+      <Number number={3}></Number>
+      <Number number={4}></Number>
+      <Number number={5}></Number>
+      <Number number={6}></Number>
+      <Number number={7}></Number>
+      <Number number={8}></Number>
       <Unknown></Unknown>
     </div>
   );
