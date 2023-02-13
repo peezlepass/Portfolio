@@ -20,6 +20,7 @@ export default function MinesweeperPage() {
       <Field></Field>
       <Cell></Cell>
       <Bomb></Bomb>
+      <Bomb red={true}></Bomb>
       <BombGuess></BombGuess>
       <Empty></Empty>
       <Number number={1}></Number>

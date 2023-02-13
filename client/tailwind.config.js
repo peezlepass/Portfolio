@@ -90,6 +90,7 @@ module.exports = {
         "number-cell-six": "rgb(14, 108, 109)",
         "number-cell-seven": "rgb(108, 0, 109)",
         "number-cell-eight": "rgb(95, 95, 95)",
+        "red-bomb": "rgb(253, 0, 6)",
       },
       backgroundImage: {
         // https://codepen.io/billyysea/pen/nLroLY
