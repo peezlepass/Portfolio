@@ -15,7 +15,9 @@ export default function MinesweeperPage() {
     <div className="flex flex-col gap-y-8 items-center">
       <Board></Board>
       <Header></Header>
-      <Restart></Restart>
+      <Restart mood="smile"></Restart>
+      <Restart mood="surprise"></Restart>
+      <Restart mood="dead"></Restart>
       <Counter></Counter>
       <Field></Field>
       <Cell></Cell>

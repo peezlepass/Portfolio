@@ -92,6 +92,7 @@ module.exports = {
         "number-cell-eight": "rgb(95, 95, 95)",
         "red-bomb": "rgb(253, 0, 6)",
         "red-flag": "rgb(254, 139, 143)",
+        "restart-border": "rgb(129, 130, 133)",
       },
       backgroundImage: {
         // https://codepen.io/billyysea/pen/nLroLY
