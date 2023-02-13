@@ -15,7 +15,7 @@ export default function Restart({ mood }) {
     <div
       onMouseDown={() => setPressed(true)}
       onMouseUp={() => setPressed(false)}
-      className="w-40 h-40 bg-empty-cell-color border-8 ring-4 ring-restart-border text-9xl flex items-center justify-center"
+      className="w-20 h-20 bg-empty-cell-color border-8 ring-4 ring-restart-border text-6xl flex items-center justify-center"
       style={{ borderStyle: pressed ? "inset" : "outset" }}
     >
       {text}
