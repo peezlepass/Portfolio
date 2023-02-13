@@ -18,7 +18,7 @@ export default function MinesweeperPage() {
       <Restart mood="smile"></Restart>
       <Restart mood="surprise"></Restart>
       <Restart mood="dead"></Restart>
-      <Counter></Counter>
+      <Counter number={320}></Counter>
       <Field></Field>
       <Cell></Cell>
       <Bomb></Bomb>
