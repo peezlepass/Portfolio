@@ -108,6 +108,9 @@ module.exports = {
       blur: {
         xs: "2px",
       },
+      borderWidth: {
+        6: "6px",
+      },
     },
   },
   plugins: [],

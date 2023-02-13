@@ -8,7 +8,7 @@ export default function Board() {
       style={{ borderStyle: "outset" }}
     >
       <Header></Header>
-      <Field></Field>
+      <Field width={9} height={9}></Field>
     </div>
   );
 }

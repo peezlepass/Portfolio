@@ -1,7 +1,7 @@
 export default function Unknown() {
   return (
     <div
-      className="w-20 h-20 bg-empty-cell-color border-8"
+      className="w-14 h-14 bg-empty-cell-color border-6"
       style={{ borderStyle: "outset" }}
     ></div>
   );
