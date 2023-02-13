@@ -22,6 +22,7 @@ export default function MinesweeperPage() {
       <Bomb></Bomb>
       <Bomb red={true}></Bomb>
       <BombGuess></BombGuess>
+      <BombGuess red={true}></BombGuess>
       <Empty></Empty>
       <Number number={1}></Number>
       <Number number={2}></Number>
