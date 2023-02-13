@@ -1,4 +1,4 @@
-import Unknown from "./Cells/Unknown";
+import Cell from "./Cell";
 
 export default function Field({ width, height }) {
   const cells = Array.from({ length: width * height });
@@ -8,7 +8,7 @@ export default function Field({ width, height }) {
       style={{ borderStyle: "inset" }}
     >
       {cells.map((cell) => {
-        return <Unknown></Unknown>;
+        return <Cell type="bombGuess" props={{ red: true }}></Cell>;
       })}
     </div>
   );

@@ -6,9 +6,8 @@ export default function Bomb({ red }) {
 
   return (
     <div
-      className={`w-20 h-20 ${background} border-4 border-empty-cell-border text-6xl flex items-center justify-center`}
+      className={`w-20 h-20 ${background} border-t-4 border-l-4 border-empty-cell-border text-6xl flex items-center justify-center`}
     >
-      {" "}
       💣
     </div>
   );
