@@ -11,10 +11,10 @@ import Login from "./components/Login/Login";
 import { useReducer } from "react";
 import userReducer from "./reducers/userReducer";
 import { globalContext as GlobalContext } from "./context/globalContext";
+import MinesweeperPage from "./components/Minesweeper/MinesweeperPage";
 
 function App() {
   const localUser = localStorage.getItem("portfolio.user");
-
   const initialState = { user: localUser ? JSON.parse(localUser) : null };
   const [state, dispatch] = useReducer(userReducer, initialState);
   return (
@@ -23,6 +23,10 @@ function App() {
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route
+              path="/minesweeper"
+              element={<MinesweeperPage></MinesweeperPage>}
+            />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />

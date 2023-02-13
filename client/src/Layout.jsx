@@ -22,6 +22,7 @@ export default function Layout({ children }) {
       <header>
         <nav className="flex justify-center gap-x-5 pt-6 text-3xl pb-6 font-pacifico">
           <Link to="/">Home</Link>
+          <Link to="/minesweeper">Minesweeper</Link>
           <Link to="/portfolio">Portfolio</Link>
           <Link to="/about">About</Link>
           <Link to="/contact">Contact</Link>

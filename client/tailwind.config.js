@@ -80,6 +80,8 @@ module.exports = {
       colors: {
         poster: "#EDF6F9",
         button: "#83C5BE",
+        "empty-cell-color": "rgb(186, 186, 186)",
+        "empty-cell-border": "rgb(156, 156, 156)",
       },
       backgroundImage: {
         // https://codepen.io/billyysea/pen/nLroLY
