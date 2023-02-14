@@ -23,7 +23,7 @@ export default function Board() {
         // clickRestart={() => setMinefield(generateMinefield())}
       ></Header>
       <Field
-        minefield={state.userField}
+        userField={state.userField}
         dispatch={dispatch}
         width={9}
         height={9}

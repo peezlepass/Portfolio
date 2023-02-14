@@ -1,7 +1,16 @@
 export default function minesweeperReducer(prevState, { type, payload }) {
   switch (type) {
     case "REVEAL_CELL":
-      return { ...prevState };
+      return {
+        ...prevState,
+        userField: prevState.userField.map((cell, index) => {
+          if (index === payload) {
+            return prevState.minefield[index];
+          } else {
+            return cell;
+          }
+        }),
+      };
 
     case "MARK_POTENTIAL_BOMB":
       if (prevState.guessesRemaining === 0) {
