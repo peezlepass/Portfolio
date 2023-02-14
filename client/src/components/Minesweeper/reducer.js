@@ -1,3 +1,5 @@
+import { generateMinefield, generateUserField } from "./generateMinefield";
+
 export default function minesweeperReducer(prevState, { type, payload }) {
   switch (type) {
     case "REVEAL_CELL":
@@ -39,6 +41,15 @@ export default function minesweeperReducer(prevState, { type, payload }) {
           }
         }),
         guessesRemaining: prevState.guessesRemaining + 1,
+      };
+
+    case "RESTART":
+      return {
+        ...prevState,
+        userField: generateUserField(),
+        minefield: generateMinefield(),
+        guessesRemaining: 10,
+        timer: 0,
       };
 
     default:
