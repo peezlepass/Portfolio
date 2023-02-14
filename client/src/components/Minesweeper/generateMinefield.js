@@ -1,4 +1,4 @@
-function bombIndexes() {
+export function bombIndexes() {
   let array1 = [];
   for (let i = 1; i < 11; i++) {
     let randomNumber = Math.floor(Math.random() * 81 + 1);
@@ -81,4 +81,12 @@ export function printMinefield(arr, row) {
     }
     console.log(line);
   }
+}
+
+export function generateUserField() {
+  let arr = [];
+  for (let i = 1; i < 82; i++) {
+    arr.push("U");
+  }
+  return arr;
 }

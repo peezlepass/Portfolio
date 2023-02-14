@@ -19,7 +19,7 @@ export default function Number({ number }) {
   }
   return (
     <div
-      className={`w-20 h-20 bg-empty-cell-color border-t-4 border-l-4 border-empty-cell-border font-mono text-7xl text-center ${color}`}
+      className={`w-14 h-14 bg-empty-cell-color border-t-4 border-l-4 border-empty-cell-border font-mono text-7xl text-center ${color}`}
     >
       {" "}
       {number}
