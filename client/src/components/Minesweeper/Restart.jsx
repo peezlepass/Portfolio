@@ -7,6 +7,8 @@ export default function Restart({ mood, dispatch }) {
     text = "😮";
   } else if (mood === "dead") {
     text = "😵";
+  } else if (mood === "cool") {
+    text = "😎";
   }
 
   const handleClick = (e) => {
