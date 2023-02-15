@@ -1,7 +1,7 @@
 import Header from "./Header";
 import Field from "./Field";
 import { useReducer } from "react";
-import { generateMinefield, generateUserField } from "./generateMinefield";
+import { generateMinefield, generateUserField } from "./minesweeper";
 import minesweeperReducer from "./reducer";
 
 export default function Board() {
