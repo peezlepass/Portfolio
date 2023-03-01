@@ -2,12 +2,13 @@ import {
   findReveals,
   generateMinefield,
   generateUserField,
+  hasWon,
 } from "./minesweeper";
 
 export default function minesweeperReducer(prevState, { type, payload }) {
   switch (type) {
     case "REVEAL_CELL":
-      if (prevState.gameStatus === "over") {
+      if (prevState.gameStatus === "over" || prevState.gameStatus === "won") {
         return prevState;
       }
 
@@ -30,20 +31,31 @@ export default function minesweeperReducer(prevState, { type, payload }) {
         prevState.minefield,
         prevState.userField
       );
-      return {
-        ...prevState,
-        gameStatus: "running",
-        userField: prevState.userField.map((cell, index) => {
-          if (reveals.includes(index)) {
-            return prevState.minefield[index];
-          } else {
-            return cell;
-          }
-        }),
-      };
+      const newUserField = prevState.userField.map((cell, index) => {
+        if (reveals.includes(index)) {
+          return prevState.minefield[index];
+        } else {
+          return cell;
+        }
+      });
+      if (hasWon(newUserField)) {
+        return {
+          ...prevState,
+          gameStatus: "won",
+          userField: newUserField.map((cell) => {
+            if (cell === "U") {
+              return "G";
+            } else {
+              return cell;
+            }
+          }),
+        };
+      } else {
+        return { ...prevState, gameStatus: "running", userField: newUserField };
+      }
 
     case "MARK_POTENTIAL_BOMB":
-      if (prevState.gameStatus === "over") {
+      if (prevState.gameStatus === "over" || prevState.gameStatus === "won") {
         return prevState;
       }
       if (prevState.guessesRemaining === 0) {
@@ -62,7 +74,7 @@ export default function minesweeperReducer(prevState, { type, payload }) {
       };
 
     case "UNMARK_POTENTIAL_BOMB":
-      if (prevState.gameStatus === "over") {
+      if (prevState.gameStatus === "over" || prevState.gameStatus === "won") {
         return prevState;
       }
       return {

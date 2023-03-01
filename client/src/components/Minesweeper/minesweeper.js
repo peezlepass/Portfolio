@@ -181,3 +181,11 @@ export function findReveals(index, minefield, userField, revealSoFar = []) {
   }
   return revealSoFar;
 }
+
+export function hasWon(userField) {
+  return (
+    userField.filter((cell) => {
+      return typeof cell !== "number";
+    }).length === 10
+  );
+}
