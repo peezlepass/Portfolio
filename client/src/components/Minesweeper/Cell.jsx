@@ -9,6 +9,10 @@ export default function Cell({ cell, dispatch, index }) {
     return <Bomb></Bomb>;
   }
 
+  if (cell === "XR") {
+    return <Bomb red={true}></Bomb>;
+  }
+
   if (cell === 0) {
     return <Empty></Empty>;
   }
