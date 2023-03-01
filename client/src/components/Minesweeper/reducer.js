@@ -16,7 +16,11 @@ export default function minesweeperReducer(prevState, { type, payload }) {
         return {
           ...prevState,
           userField: prevState.userField.map((cell, index) => {
-            if (prevState.minefield[index] === "X") {
+            if (prevState.minefield[index] === "X" && cell === "G") {
+              return "G";
+            } else if (prevState.minefield[index] !== "X" && cell === "G") {
+              return "GR";
+            } else if (prevState.minefield[index] === "X") {
               return index === payload ? "XR" : "X";
             } else {
               return cell;

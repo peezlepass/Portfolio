@@ -25,5 +25,9 @@ export default function Cell({ cell, dispatch, index }) {
     return <BombGuess index={index} dispatch={dispatch}></BombGuess>;
   }
 
+  if (cell === "GR") {
+    return <BombGuess dispatch={dispatch} index={index} red={true}></BombGuess>;
+  }
+
   return <Number number={cell}></Number>;
 }
