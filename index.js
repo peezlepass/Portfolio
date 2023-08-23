@@ -2,22 +2,32 @@ const canvas = document.getElementById("simulator");
 
 const ctx = canvas.getContext("2d");
 
-// ctx.fillStyle = "green";
-// ctx.fillRect(10, 10, 150, 100);
-// ctx.clearRect(10, 10, 140, 90);
-// ctx.fillStyle = "red";
-// ctx.fillRect(200, 200, 300, 150);
-// ctx.fillStyle = "blue";
-// ctx.fillRect(400, 400, 150, 300);
-// ctx.fillStyle = "yellow";
-// ctx.fillRect(600, 10, 150, 100);
+let dot = {
+  x: 50,
+  y: 50,
+};
+// let velocity = [1, 1];
+// let acceleration = [0, 0];
 
-let x = 10;
-let colour = ["red", "green", "blue"];
-let colourIndex = 0;
 setInterval(() => {
-  ctx.fillStyle = colour[colourIndex % colour.length];
-  ctx.fillRect(x, 10, 150, 100);
-  x += 5;
-  colourIndex += 1;
+  clear(ctx);
+  draw(ctx);
+  update();
 }, 16);
+
+function clear(ctx) {
+  ctx.clearRect(0, 0, 1024, 768);
+}
+
+function draw(ctx) {
+  ctx.fillStyle = "green";
+  ctx.beginPath();
+  ctx.arc(dot.x, dot.y, 5, 0, 2 * Math.PI);
+  ctx.fill();
+  // velocity = add(velocity, acceleration);
+  // dot = add(dot, velocity);
+}
+
+function update(vectorA, vectorB) {
+  // return [vectorA[0] + vectorB[0], vectorA[1] + vectorB[1]];
+}
