@@ -24,7 +24,7 @@ setInterval(() => {
 }, 16);
 
 function clear(ctx) {
-  ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
+  ctx.fillStyle = "rgba(0, 0, 0, 0.1 )";
   ctx.rect(0, 0, width, height);
   ctx.fill();
 }
@@ -34,7 +34,7 @@ function draw(ctx) {
     for (let j = i + 1; j < dots.length; j++) {
       const dist = distance(dots[i], dots[j]);
       if (dist < 100) {
-        ctx.strokeStyle = `rgba(42, 171, 19, ${1 - dist / 100})`;
+        ctx.strokeStyle = `rgba(42, 171, 19, ${(1 - dist / 100) / 10})`;
         line(ctx, ...dots[i], ...dots[j]);
       }
     }
