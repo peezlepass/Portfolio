@@ -4,15 +4,23 @@ const ctx = canvas.getContext("2d");
 
 const width = 1024;
 const height = 768;
+const numberOfDots = 10;
 
-let dots = [
-  [50, 50],
-  [200, 200],
-];
-let velocities = [
-  [10, 10],
-  [10, 10],
-];
+let dots = [];
+let velocities = [];
+
+for (let i = 0; i < numberOfDots; i++) {
+  dots.push([randomNumber(0, width), randomNumber(0, height)]);
+  velocities.push([2, 2]);
+}
+// let dots = [
+//   [50, 50],
+//   [200, 200],
+// ];
+// let velocities = [
+//   [10, 10],
+//   [10, 10],
+// ];
 
 setInterval(() => {
   clear(ctx);
@@ -48,4 +56,10 @@ function update() {
 
 function add(vectorA, vectorB) {
   return [vectorA[0] + vectorB[0], vectorA[1] + vectorB[1]];
+}
+
+function randomNumber(from, to) {
+  const distance = to - from;
+  const random = Math.random() * distance;
+  return from + random;
 }
