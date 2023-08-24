@@ -4,7 +4,7 @@ const ctx = canvas.getContext("2d");
 
 const width = 1024;
 const height = 768;
-const numberOfDots = 10;
+const numberOfDots = 100;
 
 let dots = [];
 let velocities = [];
@@ -42,10 +42,10 @@ function draw(ctx) {
         }
       }
     }
-    ctx.fillStyle = "green";
-    ctx.beginPath();
-    ctx.arc(dots[i][0], dots[i][1], 5, 0, 2 * Math.PI);
-    ctx.fill();
+    // ctx.fillStyle = "green";
+    // ctx.beginPath();
+    // ctx.arc(dots[i][0], dots[i][1], 5, 0, 2 * Math.PI);
+    // ctx.fill();
   }
 }
 
