@@ -35,7 +35,13 @@ function draw(ctx) {
       const dist = distance(dots[i], dots[j]);
       if (dist < 100) {
         //ctx.strokeStyle = `hsla(260, 100, 50, ${(1 - dist / 100) / 10})`;
-        ctx.strokeStyle = `hsla(260, 100%, 50%, 1)`;
+        ctx.strokeStyle = `hsla(${mapPointToColour(
+          dots[i][1],
+          0,
+          height,
+          200,
+          260
+        )}, 100%, 50%, ${(1 - dist / 100) / 10})`;
         line(ctx, ...dots[i], ...dots[j]);
       }
     }
@@ -81,4 +87,10 @@ function line(ctx, x1, y1, x2, y2) {
   ctx.moveTo(x1, y1); // Move the pen to (30, 50)
   ctx.lineTo(x2, y2); // Draw a line to (150, 100)
   ctx.stroke(); // Render the path
+}
+
+function mapPointToColour(y, min, max, minHue, maxHue) {
+  const value = y - min;
+  const percent = value / (max - min);
+  return minHue + (maxHue - minHue) * percent;
 }
