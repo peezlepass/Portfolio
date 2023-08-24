@@ -6,9 +6,8 @@ const width = 1024;
 const height = 768;
 
 let dot = [50, 50];
-let velocity = [1, 0];
+let velocity = [10, 0];
 let acceleration = [0, 0];
-let gravity = [0, 0.001];
 
 setInterval(() => {
   clear(ctx);
@@ -31,11 +30,12 @@ function draw(ctx) {
 }
 
 function update() {
-  acceleration = add(acceleration, gravity);
-  velocity = add(velocity, acceleration);
   dot = add(dot, velocity);
   if (dot[1] >= height) {
     dot[1] = 0;
+  }
+  if (dot[0] >= width) {
+    dot[0] = 0;
   }
 }
 
