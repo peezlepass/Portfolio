@@ -34,14 +34,15 @@ function draw(ctx) {
     for (let j = i + 1; j < dots.length; j++) {
       const dist = distance(dots[i], dots[j]);
       if (dist < 100) {
-        ctx.strokeStyle = `rgba(42, 171, 19, ${(1 - dist / 100) / 10})`;
+        //ctx.strokeStyle = `hsla(260, 100, 50, ${(1 - dist / 100) / 10})`;
+        ctx.strokeStyle = `hsla(260, 100%, 50%, 1)`;
         line(ctx, ...dots[i], ...dots[j]);
       }
     }
   }
 }
 
-const buffer = 0;
+const buffer = 100;
 function update() {
   for (let i = 0; i < dots.length; i++) {
     add(dots[i], velocities[i]);
