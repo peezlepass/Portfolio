@@ -4,7 +4,7 @@ const ctx = canvas.getContext("2d");
 
 const width = 1024;
 const height = 768;
-const numberOfDots = 100;
+const numberOfDots = 10;
 
 let dots = [];
 let velocities = [];
@@ -33,11 +33,18 @@ function clear(ctx) {
 }
 
 function draw(ctx) {
-  for (let [x, y] of dots) {
-    // let dot = dots[i] same as let [x, y] = dots[i]
+  for (let i = 0; i < dots.length; i++) {
+    for (let j = 0; j < dots.length; j++) {
+      if (i !== j) {
+        if (distance(dots[i], dots[j]) < 100) {
+          ctx.strokeStyle = "green";
+          line(ctx, ...dots[i], ...dots[j]);
+        }
+      }
+    }
     ctx.fillStyle = "green";
     ctx.beginPath();
-    ctx.arc(x, y, 5, 0, 2 * Math.PI);
+    ctx.arc(dots[i][0], dots[i][1], 5, 0, 2 * Math.PI);
     ctx.fill();
   }
 }
@@ -68,4 +75,15 @@ function randomNumber(from, to) {
   const distance = to - from;
   const random = Math.random() * distance;
   return from + random;
+}
+
+function distance([x1, y1], [x2, y2]) {
+  return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+}
+
+function line(ctx, x1, y1, x2, y2) {
+  ctx.beginPath(); // Start a new path
+  ctx.moveTo(x1, y1); // Move the pen to (30, 50)
+  ctx.lineTo(x2, y2); // Draw a line to (150, 100)
+  ctx.stroke(); // Render the path
 }
