@@ -24,49 +24,45 @@ setInterval(() => {
 }, 16);
 
 function clear(ctx) {
-  // ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
-  // ctx.rect(0, 0, width, height);
-  // ctx.fill();
+  ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
+  ctx.rect(0, 0, width, height);
+  ctx.fill();
 }
 
 function draw(ctx) {
   for (let i = 0; i < dots.length; i++) {
-    for (let j = 0; j < dots.length; j++) {
-      if (i !== j) {
-        const dist = distance(dots[i], dots[j]);
-        if (dist < 100) {
-          ctx.strokeStyle = "green";
-          line(ctx, ...dots[i], ...dots[j]);
-        }
+    for (let j = i + 1; j < dots.length; j++) {
+      const dist = distance(dots[i], dots[j]);
+      if (dist < 100) {
+        ctx.strokeStyle = `rgba(42, 171, 19, ${1 - dist / 100})`;
+        line(ctx, ...dots[i], ...dots[j]);
       }
     }
-    // ctx.fillStyle = "green";
-    // ctx.beginPath();
-    // ctx.arc(dots[i][0], dots[i][1], 5, 0, 2 * Math.PI);
-    // ctx.fill();
   }
 }
 
+const buffer = 0;
 function update() {
   for (let i = 0; i < dots.length; i++) {
-    dots[i] = add(dots[i], velocities[i]);
-    if (dots[i][1] >= height) {
-      dots[i][1] = 0;
+    add(dots[i], velocities[i]);
+    if (dots[i][1] > height + buffer) {
+      dots[i][1] = 0 - buffer;
     }
-    if (dots[i][0] >= width) {
-      dots[i][0] = 0;
+    if (dots[i][0] > width + buffer) {
+      dots[i][0] = 0 - buffer;
     }
-    if (dots[i][1] <= 0) {
-      dots[i][1] = height;
+    if (dots[i][1] < 0 - buffer) {
+      dots[i][1] = height + buffer;
     }
-    if (dots[i][0] <= 0) {
-      dots[i][0] = width;
+    if (dots[i][0] < 0 - buffer) {
+      dots[i][0] = width + buffer;
     }
   }
 }
 
 function add(vectorA, vectorB) {
-  return [vectorA[0] + vectorB[0], vectorA[1] + vectorB[1]];
+  vectorA[0] += vectorB[0];
+  vectorA[1] += vectorB[1];
 }
 
 function randomNumber(from, to) {
