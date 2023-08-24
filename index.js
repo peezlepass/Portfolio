@@ -3,8 +3,9 @@ const canvas = document.getElementById("simulator");
 const ctx = canvas.getContext("2d");
 
 let dot = [50, 50];
-let velocity = [1, 1];
+let velocity = [1, 0];
 let acceleration = [0, 0];
+let gravity = [0, 0.1];
 
 setInterval(() => {
   clear(ctx);
@@ -27,6 +28,7 @@ function draw(ctx) {
 }
 
 function update() {
+  acceleration = add(acceleration, gravity);
   velocity = add(velocity, acceleration);
   dot = add(dot, velocity);
 }
