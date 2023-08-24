@@ -11,7 +11,7 @@ let velocities = [];
 
 for (let i = 0; i < numberOfDots; i++) {
   dots.push([randomNumber(0, width), randomNumber(0, height)]);
-  velocities.push([randomNumber(-5, 5), randomNumber(-5, 5)]);
+  velocities.push([randomNumber(-1, 1), randomNumber(-1, 1)]);
 }
 // let dots = [
 //   [50, 50],
@@ -29,9 +29,7 @@ setInterval(() => {
 }, 16);
 
 function clear(ctx) {
-  ctx.fillStyle = "rgba(255, 255, 255, 0.1)";
-  ctx.rect(0, 0, width, height);
-  ctx.fill();
+  ctx.clearRect(0, 0, width, height);
 }
 
 function draw(ctx) {
@@ -44,26 +42,26 @@ function draw(ctx) {
         }
       }
     }
-    // ctx.fillStyle = "green";
-    // ctx.beginPath();
-    // ctx.arc(dots[i][0], dots[i][1], 5, 0, 2 * Math.PI);
-    // ctx.fill();
+    ctx.fillStyle = "green";
+    ctx.beginPath();
+    ctx.arc(dots[i][0], dots[i][1], 5, 0, 2 * Math.PI);
+    ctx.fill();
   }
 }
 
 function update() {
   for (let i = 0; i < dots.length; i++) {
     dots[i] = add(dots[i], velocities[i]);
-    if (dots[i][1] >= height) {
+    if (dots[i][1] > height) {
       dots[i][1] = 0;
     }
-    if (dots[i][0] >= width) {
+    if (dots[i][0] > width) {
       dots[i][0] = 0;
     }
-    if (dots[i][1] <= 0) {
+    if (dots[i][1] < 0) {
       dots[i][1] = height;
     }
-    if (dots[i][0] <= 0) {
+    if (dots[i][0] < 0) {
       dots[i][0] = width;
     }
   }
