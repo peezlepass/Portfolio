@@ -1,10 +1,13 @@
-const canvas = document.getElementById("simulator");
+const canvas = document.createElement("canvas");
+const width = window.innerWidth;
+const height = window.innerHeight;
+canvas.setAttribute("width", width);
+canvas.setAttribute("height", height);
+canvas.style.background = "black";
+document.body.appendChild(canvas);
 
 const ctx = canvas.getContext("2d");
-
-const width = 1024;
-const height = 768;
-const numberOfDots = 100;
+const numberOfDots = 2000;
 
 let dots = [];
 let velocities = [];
@@ -13,14 +16,6 @@ for (let i = 0; i < numberOfDots; i++) {
   dots.push([randomNumber(0, width), randomNumber(0, height)]);
   velocities.push([randomNumber(-1, 1), randomNumber(-1, 1)]);
 }
-// let dots = [
-//   [50, 50],
-//   [200, 200],
-// ];
-// let velocities = [
-//   [10, 10],
-//   [10, 10],
-// ];
 
 setInterval(() => {
   clear(ctx);
@@ -29,7 +24,9 @@ setInterval(() => {
 }, 16);
 
 function clear(ctx) {
-  ctx.clearRect(0, 0, width, height);
+  // ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
+  // ctx.rect(0, 0, width, height);
+  // ctx.fill();
 }
 
 function draw(ctx) {
@@ -38,31 +35,31 @@ function draw(ctx) {
       if (i !== j) {
         const dist = distance(dots[i], dots[j]);
         if (dist < 100) {
-          ctx.strokeStyle = `rgba(42, 171, 19, ${1 - dist / 100})`;
+          ctx.strokeStyle = "green";
           line(ctx, ...dots[i], ...dots[j]);
         }
       }
     }
-    ctx.fillStyle = "green";
-    ctx.beginPath();
-    ctx.arc(dots[i][0], dots[i][1], 5, 0, 2 * Math.PI);
-    ctx.fill();
+    // ctx.fillStyle = "green";
+    // ctx.beginPath();
+    // ctx.arc(dots[i][0], dots[i][1], 5, 0, 2 * Math.PI);
+    // ctx.fill();
   }
 }
 
 function update() {
   for (let i = 0; i < dots.length; i++) {
     dots[i] = add(dots[i], velocities[i]);
-    if (dots[i][1] > height) {
+    if (dots[i][1] >= height) {
       dots[i][1] = 0;
     }
-    if (dots[i][0] > width) {
+    if (dots[i][0] >= width) {
       dots[i][0] = 0;
     }
-    if (dots[i][1] < 0) {
+    if (dots[i][1] <= 0) {
       dots[i][1] = height;
     }
-    if (dots[i][0] < 0) {
+    if (dots[i][0] <= 0) {
       dots[i][0] = width;
     }
   }
