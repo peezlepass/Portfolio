@@ -4,14 +4,14 @@ const ctx = canvas.getContext("2d");
 
 const width = 1024;
 const height = 768;
-const numberOfDots = 10;
+const numberOfDots = 100;
 
 let dots = [];
 let velocities = [];
 
 for (let i = 0; i < numberOfDots; i++) {
   dots.push([randomNumber(0, width), randomNumber(0, height)]);
-  velocities.push([2, 2]);
+  velocities.push([randomNumber(-5, 5), randomNumber(-5, 5)]);
 }
 // let dots = [
 //   [50, 50],
@@ -50,6 +50,12 @@ function update() {
     }
     if (dots[i][0] >= width) {
       dots[i][0] = 0;
+    }
+    if (dots[i][1] <= 0) {
+      dots[i][1] = height;
+    }
+    if (dots[i][0] <= 0) {
+      dots[i][0] = width;
     }
   }
 }
