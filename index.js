@@ -5,9 +5,14 @@ const ctx = canvas.getContext("2d");
 const width = 1024;
 const height = 768;
 
-let dot = [50, 50];
-let velocity = [10, 0];
-let acceleration = [0, 0];
+let dots = [
+  [50, 50],
+  [200, 200],
+];
+let velocities = [
+  [10, 10],
+  [10, 10],
+];
 
 setInterval(() => {
   clear(ctx);
@@ -20,22 +25,24 @@ function clear(ctx) {
 }
 
 function draw(ctx) {
-  const [x, y] = dot;
-  ctx.fillStyle = "green";
-  ctx.beginPath();
-  ctx.arc(x, y, 5, 0, 2 * Math.PI);
-  ctx.fill();
-  velocity = add(velocity, acceleration);
-  dot = add(dot, velocity);
+  for (let [x, y] of dots) {
+    // let dot = dots[i] same as let [x, y] = dots[i]
+    ctx.fillStyle = "green";
+    ctx.beginPath();
+    ctx.arc(x, y, 5, 0, 2 * Math.PI);
+    ctx.fill();
+  }
 }
 
 function update() {
-  dot = add(dot, velocity);
-  if (dot[1] >= height) {
-    dot[1] = 0;
-  }
-  if (dot[0] >= width) {
-    dot[0] = 0;
+  for (let i = 0; i < dots.length; i++) {
+    dots[i] = add(dots[i], velocities[i]);
+    if (dots[i][1] >= height) {
+      dots[i][1] = 0;
+    }
+    if (dots[i][0] >= width) {
+      dots[i][0] = 0;
+    }
   }
 }
 
