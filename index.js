@@ -29,7 +29,9 @@ setInterval(() => {
 }, 16);
 
 function clear(ctx) {
-  // ctx.clearRect(0, 0, width, height);
+  ctx.fillStyle = "rgba(255, 255, 255, 0.1)";
+  ctx.rect(0, 0, width, height);
+  ctx.fill();
 }
 
 function draw(ctx) {
