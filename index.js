@@ -36,8 +36,9 @@ function draw(ctx) {
   for (let i = 0; i < dots.length; i++) {
     for (let j = 0; j < dots.length; j++) {
       if (i !== j) {
-        if (distance(dots[i], dots[j]) < 100) {
-          ctx.strokeStyle = "green";
+        const dist = distance(dots[i], dots[j]);
+        if (dist < 100) {
+          ctx.strokeStyle = `rgba(42, 171, 19, ${1 - dist / 100})`;
           line(ctx, ...dots[i], ...dots[j]);
         }
       }
