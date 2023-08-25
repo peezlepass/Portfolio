@@ -4,10 +4,15 @@ const height = window.innerHeight;
 canvas.setAttribute("width", width);
 canvas.setAttribute("height", height);
 canvas.style.background = "black";
+canvas.style.position = "fixed";
+canvas.style.top = 0;
+canvas.style.right = 0;
+canvas.style.bottom = 0;
+canvas.style.left = 0;
 document.body.appendChild(canvas);
 
 const ctx = canvas.getContext("2d");
-const numberOfDots = 2000;
+const numberOfDots = width < 768 ? 275 : 2000;
 
 let dots = [];
 let velocities = [];

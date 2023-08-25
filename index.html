@@ -10,6 +10,7 @@
         margin: 0;
         padding: 0;
         font-family: Helvetica, Arial, sans-serif;
+        background: black;
       }
 
       .container {
@@ -62,12 +63,28 @@
 
       footer {
         position: absolute;
+        z-index: 2;
         bottom: 0;
         left: 0;
         right: 0;
         height: 40px;
         color: white;
         text-align: center;
+      }
+
+      .footer-content {
+        z-index: 2;
+        height: 40px;
+        color: white;
+        text-align: center;
+      }
+
+      .footer-content a,
+      .footer-content a:visited,
+      .footer-content a:hover,
+      .footer-content a:active {
+        color: white;
+        text-decoration: underline;
       }
 
       footer a,
@@ -84,44 +101,115 @@
         font-weight: bolder;
         font-size: 28px;
       }
+
+      .hide-desktop {
+        display: none !important;
+      }
+
+      .hide-mobile {
+        display: block !important;
+      }
+
+      @media (max-width: 767px) {
+        .container {
+          position: relative;
+          flex-direction: column;
+          z-index: 2;
+        }
+
+        .project {
+          height: auto;
+        }
+
+        .project-name {
+          font-size: 20px;
+        }
+
+        .link.website {
+          border-width: 10px;
+        }
+
+        .hide-desktop {
+          display: block !important;
+        }
+
+        .hide-mobile {
+          display: none !important;
+        }
+
+        .mobile-github {
+          display: inline-block !important;
+          position: relative;
+          top: 8px;
+          left: 8px;
+          width: 32px;
+          height: 32px;
+          background: url("./github-icon.png") no-repeat center center;
+          background-size: cover;
+          border-radius: 100%;
+        }
+      }
     </style>
   </head>
   <body>
     <div class="container">
       <div class="project">
-        <h2 class="project-name">Solitaire</h2>
-        <a class="link website" href="https://peezlepass.com/solitaire">
-          <!-- <img src="./Solitaire.png" width="300" /> -->
+        <h2 class="project-name">
+          Solitaire<a
+            class="hide-desktop mobile-github"
+            href="https://github.com/peezlepass/solitaire"
+          ></a>
+        </h2>
+        <a class="link website" href="./solitaire">
           <img src="./Minesweeper.png" width="300" />
         </a>
         <a
-          class="link github"
+          class="link github hide-mobile"
           href="https://github.com/peezlepass/solitaire"
         ></a>
       </div>
       <div class="project">
-        <h2 class="project-name">Minesweeper</h2>
-        <a class="link website" href="https://peezlepass.com/minesweeper">
+        <h2 class="project-name">
+          Minesweeper<a
+            class="hide-desktop mobile-github"
+            href="https://github.com/peezlepass/minesweeper"
+          ></a>
+        </h2>
+        <a class="link website" href="./minesweeper">
           <img src="./Minesweeper.png" width="300" />
         </a>
         <a
-          class="link github"
+          class="link github hide-mobile"
           href="https://github.com/peezlepass/minesweeper"
         ></a>
       </div>
       <div class="project">
-        <h2 class="project-name">Project Solo</h2>
-        <a class="link website" href="https://peezlepass.com/project-solo">
-          <!-- <img src="./Project-Solo.png" width="300" /> -->
+        <h2 class="project-name">
+          Project Solo<a
+            class="hide-desktop mobile-github"
+            href="https://github.com/peezlepass/project-solo"
+          ></a>
+        </h2>
+        <a class="link website" href="./project-solo">
           <img src="./Minesweeper.png" width="300" />
         </a>
         <a
-          class="link github"
+          class="link github hide-mobile"
           href="https://github.com/peezlepass/project-solo"
         ></a>
       </div>
+      <div class="hide-desktop footer-content">
+        <nav>
+          <p>
+            Made with ♥ by
+            <a href="https://www.linkedin.com/in/ellina-shcherbaeva/"
+              >Peezlepass</a
+            >
+          </p>
+        </nav>
+      </div>
     </div>
-    <footer>
+    <footer class="hide-mobile">
       <nav>
         <p>
           Made with ♥ by
