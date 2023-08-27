@@ -5,12 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Peezlepass</title>
     <style>
+      @font-face {
+        font-family: "cyberway_ridersregular";
+        src: url("./cyberwayriders-lg97d-webfont.woff2") format("woff2"),
+          url("./cyberwayriders-lg97d-webfont.woff") format("woff");
+        font-weight: normal;
+        font-style: normal;
+      }
+
       html,
       body {
         margin: 0;
         padding: 0;
         font-family: Helvetica, Arial, sans-serif;
         background: black;
+      }
+
+      h1 {
+        position: relative;
+        z-index: 3;
+        color: hsl(107, 100%, 50%);
+        text-shadow: 4px 4px hsla(298, 100%, 50%, 1),
+          8px 8px hsla(298, 100%, 50%, 0.5), 12px 12px hsla(298, 100%, 50%, 0.2);
+        text-align: center;
+        margin-top: 100px;
+        font-size: 80px;
+        font-family: "cyberway_ridersregular", system-ui;
+        letter-spacing: 0.2em;
+        opacity: 1;
       }
 
       .container {
@@ -50,12 +72,17 @@
 
       .link.github {
         display: block;
-        width: 80px;
-        height: 80px;
+        width: 50px;
+        height: 50px;
         background: url("./github-icon.png") no-repeat center center;
         background-size: cover;
         border-radius: 100%;
         margin-top: 10px;
+        opacity: 0.6;
+      }
+
+      .link.github:hover {
+        opacity: 1;
       }
 
       img {
@@ -71,6 +98,7 @@
         height: 40px;
         color: white;
         text-align: center;
+        color: hsl(107, 100%, 50%);
       }
 
       .footer-content {
@@ -84,23 +112,29 @@
       .footer-content a:visited,
       .footer-content a:hover,
       .footer-content a:active {
-        color: white;
-        text-decoration: underline;
+        color: hsl(107, 100%, 50%);
+        text-decoration: none;
       }
 
       footer a,
       footer a:visited,
       footer a:hover,
       footer a:active {
-        color: white;
-        text-decoration: underline;
+        color: hsl(107, 100%, 50%);
+        text-decoration: none;
+      }
+
+      footer .heart {
+        color: hsla(298, 100%, 50%, 1);
       }
 
       .project-name {
         text-align: center;
-        color: white;
-        font-weight: bolder;
+        color: hsl(107, 100%, 50%);
         font-size: 28px;
+        font-family: "cyberway_ridersregular", system-ui;
+        letter-spacing: 0.2em;
+        text-shadow: 3px 3px hsl(298, 100%, 50%);
       }
 
       .hide-desktop {
@@ -112,6 +146,13 @@
       }
 
       @media (max-width: 767px) {
+        h1 {
+          margin-top: 20px;
+          margin-bottom: 0;
+          letter-spacing: 0;
+          font-size: 48px;
+        }
+
         .container {
           position: relative;
           flex-direction: column;
@@ -123,7 +164,7 @@
         }
 
         .project-name {
-          font-size: 20px;
+          font-size: 22px;
         }
 
         .link.website {
@@ -141,18 +182,20 @@
         .mobile-github {
           display: inline-block !important;
           position: relative;
-          top: 8px;
+          top: 10px;
           left: 8px;
           width: 32px;
           height: 32px;
           background: url("./github-icon.png") no-repeat center center;
           background-size: cover;
           border-radius: 100%;
+          opacity: 0.5;
         }
       }
     </style>
   </head>
   <body>
+    <h1>Peezlepass presents</h1>
     <div class="container">
       <div class="project">
         <h2 class="project-name">
@@ -202,10 +245,9 @@
       <div class="hide-desktop footer-content">
         <nav>
           <p>
-            Made with ♥ by
-            <a href="https://www.linkedin.com/in/ellina-shcherbaeva/"
-              >Peezlepass</a
-            >
+            <a href="https://www.linkedin.com/in/ellina-shcherbaeva/">
+              Made with <span class="heart">♥</span> by Ellina S.
+            </a>
           </p>
         </nav>
       </div>
@@ -213,10 +255,9 @@
     <footer class="hide-mobile">
       <nav>
         <p>
-          Made with ♥ by
-          <a href="https://www.linkedin.com/in/ellina-shcherbaeva/"
-            >Peezlepass</a
-          >
+          <a href="https://www.linkedin.com/in/ellina-shcherbaeva/">
+            Made with <span class="heart">♥</span> by Ellina S.
+          </a>
         </p>
       </nav>
     </footer>
